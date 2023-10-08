@@ -14,30 +14,31 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand ml-5" href="#"><%= image_tag "sample.png", alt: "LOGO", size: "80x65" %></a>
+          <a class="navbar-brand ml-5" href="#"><%= image_tag "logo.jpg", alt: "LOGO", size: "80x65" %></a>
            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
            </button>
             <div class="collapse navbar-collapse justify-content-end mr-5" id="navbarNavAltMarkup">
              <div class="navbar-nav">
                <% if admin_signed_in? %>
-                <% if request.fullpath.include? "/admin" %>
                   <a class="nav-link text-end" aria-current="page" href="/">会員一覧</a>
                   <a class="nav-link" href="/restaurants">投稿一覧</a>
                   <a class="nav-link" href="#">ジャンル一覧</a>
                   <a class="nav-link" href="#">ログアウト</a>
-               <% else %>
-                  <a class="nav-link" href="#">ログイン</a>
-                <% end %>
+
                <% elsif customer_signed_in? %>
-                  <a class="nav-link text-end" aria-current="page" href="/">料理店一覧</a>
-                  <a class="nav-link" href="/restaurants">ユーザー一覧</a>
-                  <a class="nav-link" href="#">マイページ</a>
-                  <a class="nav-link" href="#">ログアウト</a>
+                  <a class="nav-link text-end" aria-current="page" href="/restaurants">料理店一覧</a>
+                  <a class="nav-link" href="/customers">ユーザー一覧</a>
+                  <a class="nav-link" href="/customers/:id/my_page">マイページ</a>
+                  <a class="nav-link" href="/customers/sign_out">ログアウト</a>
                 <% else %>
-                  <a class="nav-link text-end" aria-current="page" href="/">About</a>
-                  <a class="nav-link" href="/restaurants">新規登録</a>
+                 <% if request.fullpath.include? "/admin" %>
                   <a class="nav-link" href="#">ログイン</a>
+                 <% else %>
+                  <a class="nav-link text-end" aria-current="page" href="/about">About</a>
+                  <a class="nav-link" href="/customers/sign_up">新規登録</a>
+                  <a class="nav-link" href="/customers/sign_in">ログイン</a>
+                 <% end %>
                 <% end %>
               </div>
             </div>

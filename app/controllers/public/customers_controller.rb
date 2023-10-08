@@ -1,6 +1,7 @@
 class Public::CustomersController < ApplicationController
 
   def index
+    @customers = Customer.all
   end
 
   def show
@@ -19,3 +20,8 @@ class Public::CustomersController < ApplicationController
   end
 
 end
+
+private
+   def customer_params
+     params.require(:customer).permit(:name, :body, :email, :age, :encrypted_password)
+   end
