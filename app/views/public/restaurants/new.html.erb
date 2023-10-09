@@ -6,38 +6,38 @@
      <%= form_with model: @restaurant, url: restaurants_path, local: true, method: :post do |f| %>
    <table>
          <tr>
-           <th>名前(ニックネーム)</th>
-           <td><%= f.text_field :name, placeholder: "foodfighter" %></td>
+           <th>投稿写真</th>
+           <td><%= f.text_field :food_image, accept: "image/*" %></td>
          </tr>
 
          <tr>
-           <th>年齢</th>
-           <td><%= f.text_field :age,  placeholder: "20" %></td>
+           <th>店名</th>
+           <td><%= f.text_field :restaurant_name,  placeholder: "ラーメン横綱" %></td>
          </tr>
 
          <tr>
-           <th>プロフィール画像</th>
-           <td><%= f.file_field :customer_image, accept: "image/*" %></td>
+           <th>所在地</th>
+           <td><%= f.file_field :place, accept: "東京都新宿区歌舞伎町1-2-21" %></td>
          </tr>
 
          <tr>
-           <th>自己紹介(任意)</th>
-           <td><%= f.text_area :body, placeholder: "ラーメンが大好きです！！" %></td>
+           <th>料理ジャンル</th>
+           <td><%= f.collection_select :genre_id, @genres, :id, :name, include_blank: "--選択して下さい--" %></td>
          </tr>
 
          <tr>
-           <th>メールアドレス</th>
-           <td><%= f.email_field :email, autofocus: true, placeholder: "メールアドレス" %></td>
+           <th>料理名</th>
+           <td><%= f.text_field :food_name, placeholder: "関脇ラーメン" %></td>
          </tr>
 
          <tr>
-           <th>パスワード(6文字以上)</th>
-           <td><%= f.password_field :password, placeholder: "パスワード"  %></td>
+           <th>料金</th>
+           <td><%= f.text_field :price, placeholder: "1000"  %>円</td>
          </tr>
 
          <tr>
-           <th>パスワード(確認用)</th>
-           <td><%= f.password_field :password, placeholder: "確認用"  %></td>
+           <th>感想</th>
+           <td><%= f.text_area :body, placeholder: "関脇ラーメンでもかなりの量があるので注意してください!!" %></td>
          </tr>
 
          <tr>
