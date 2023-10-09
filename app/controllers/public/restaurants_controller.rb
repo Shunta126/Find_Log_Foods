@@ -4,6 +4,8 @@ class Public::RestaurantsController < ApplicationController
   end
 
   def new
+    @restaurant = Restaurant.new
+    @genres = Genre.all
   end
 
   def create

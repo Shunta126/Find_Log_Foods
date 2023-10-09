@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-  has_one_attached :costomer_image
+  has_one_attached :customer_image
   has_many :restaurants
   has_many :likes
   has_many :comments

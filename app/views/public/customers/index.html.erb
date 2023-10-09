@@ -4,13 +4,13 @@
  <div class="row justify-content-center mt-2">
    <table>
      <tr>
-       <th>image</th>
+       <th>写真</th>
        <th>年齢</th>
        <th>年齢</th>
      </tr>
      <% @customerts.each do |customer| %>
      <tr>
-       <td><%= customer.get_user_image %></td>
+       <td><%= customer.get_customer_image, size: "200×200" %></td>
        <td><%= customer.name %></td>
        <td><%= customer.age %></td>
      </tr>
